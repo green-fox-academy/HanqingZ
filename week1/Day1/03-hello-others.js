@@ -1,5 +1,5 @@
 'use strict';
 
 console.log("Hello, Katy!");
-console.log("Hello, !");
-console.log("Hello, !");
+console.log("Hello, Micheal!");
+console.log("Hello, Ajax!");
