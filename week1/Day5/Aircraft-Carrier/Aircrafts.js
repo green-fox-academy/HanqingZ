@@ -12,9 +12,15 @@ class Aircraft {
     }
 
     refill(numberOfAmmo){
-        let remainOfTotalAmmo = numberOfAmmo - this.remain;
-        this.remain = this.maxAmmo;
-        return remainOfTotalAmmo;
+        if(numberOfAmmo < (this.max - this.remain)){
+            this.remain += numberOfAmmo;
+            return 0;
+        }
+        else{
+            let remainOfTotalAmmo = numberOfAmmo - this.remain;
+            this.remain = this.maxAmmo;
+            return remainOfTotalAmmo;
+        }
     }
 
     get getType(){

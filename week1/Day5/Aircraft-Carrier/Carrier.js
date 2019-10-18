@@ -17,20 +17,35 @@ class Carrier {
         this.aircrafts.map(e => {
             try{
                 if(this.amnoStorage === 0){throw 'empty'}
-                if(this.ammoStorage <= 12 && e.isPrioritys){
+                
+                if(this.ammoStorage < (e.maxAmno - e.remain)){
+                    if(e.isPrioritys()){
+                        this.amnoStorage = e.refill(this.ammoStorage);
+                    }
+                    else{
+                        continue;
+                    }
+                }
+                else{
                     this.amnoStorage = e.refill(this.ammoStorage);
                 }
             }
             catch(err){
-                console.log('The ammo is totally empty.');
+                console.log('The ammo is totally ' + err +'.');
             }
         })
     }
 
     fight(damage) {
-        console.log(`Get damaged!!! \n  HP -${damage}`);
-        this.hp -= damage;
-        return this.hp;
+        if(damage > this.hp){
+            console.log(`Get damaged!!! \n  HP -${this.hp}`);
+            this.hp = 0;
+        }
+        else{
+            console.log(`Get damaged!!! \n  HP -${damage}`);
+            this.hp -= damage;
+        }
+        //return this.hp;
     }
 
     getStatus() {
