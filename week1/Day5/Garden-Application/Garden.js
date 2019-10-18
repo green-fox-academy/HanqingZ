@@ -17,7 +17,7 @@ class Garden {
     watering(waterAmount){
         console.log(`Watering with ${waterAmount}`);
         //let needWatering = ;
-        let wateringAmountPerPlant = parseInt(waterAmount)/parseInt(this.getNeedWaterFlower() + this.getNeedWaterTree());
+        let wateringAmountPerPlant = parseInt(waterAmount)/parseInt(this.getNeedWaterPlant());
         
         this.flowers.map(e => {
             e.watering(wateringAmountPerPlant);
@@ -28,24 +28,19 @@ class Garden {
         })
     }
 
-    getNeedWaterFlower(){
-        let needWaterFlower = 0;
+    getNeedWaterPlant(){
+        let needWaterPlant = 0;
         this.flowers.forEach(e =>{
             if(e.status == 'needs water'){
-                needWaterFlower++;
+                needWaterPlant++;
             }
         })
-        return needWaterFlower;
-    }
-
-    getNeedWaterTree(){
-        let needWaterTree = 0;
         this.trees.forEach(e =>{
             if(e.status == 'needs water'){
-                needWaterTree++;
+                needWaterPlant++;
             }
         })
-        return needWaterTree;
+        return needWaterPlant;
     }
 }
 

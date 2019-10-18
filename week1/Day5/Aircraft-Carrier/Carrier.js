@@ -28,13 +28,15 @@ class Carrier {
     }
 
     fight(damage) {
+        console.log(`Get damaged!!! \n  HP -${damage}`);
         this.hp -= damage;
         return this.hp;
     }
 
     getStatus() {
         if(this.hp === 0){
-            return 'It\'s dead Jim :(';
+            console.log('It\'s dead Jim :(');
+            return null;
         }
         
         console.log(`HP: ${this.hp}, Aircraft count: ${this.aircraftCount}, Ammo Storage: ${this.ammoStorage}, Total damage: ${this.totalDamage} \nAircrafts:`);

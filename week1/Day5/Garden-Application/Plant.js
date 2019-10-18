@@ -2,8 +2,8 @@ class Plant {
     constructor(color, waterAmount = 0){
         this.color = color;
         this.waterAmount = waterAmount;
-        //this.status = status;
-        //this.type = type;
+        this.status = '';
+        this.type = '';
     }
     watering(wateringAmount){
     }
@@ -12,7 +12,7 @@ class Plant {
 class Flower extends Plant{
     constructor(color, waterAmount = 0){
         super(color, waterAmount = 0)
-        this.type = 'Flower';
+        this.type = 'flower';
         this.status = this.waterAmount >= 5 ? 'doesn\'t need water' : 'needs water';
     }
     
@@ -30,7 +30,7 @@ class Flower extends Plant{
 class Tree extends Plant {
     constructor(color, waterAmount = 0){
         super(color, waterAmount)
-        this.type = 'Tree';
+        this.type = 'tree';
         this.status = this.waterAmount >= 10 ? 'doesn\'t need water' : 'needs water';
     }
 

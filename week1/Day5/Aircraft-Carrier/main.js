@@ -15,3 +15,6 @@ carrier.add(aircraft4);
 carrier.add(aircraft5);
 
 carrier.getStatus();
+
+carrier.fight(5000);
+carrier.getStatus();
