@@ -4,7 +4,7 @@ class Aircraft {
         this.maxAmmo = maxAmmo;
         this.baseDamage = baseDamage;
         this.isPriority = isPriority;
-        this.remain = this.maxAmmo;
+        //this.remain = this.maxAmmo;
     }
 
     fight(){
@@ -12,7 +12,7 @@ class Aircraft {
     }
 
     refill(numberOfAmmo){
-        if(numberOfAmmo < (this.max - this.remain)){
+        if(numberOfAmmo < (this.maxAmmo - this.remain)){
             this.remain += numberOfAmmo;
             return 0;
         }

@@ -22,9 +22,6 @@ class Carrier {
                     if(e.isPrioritys()){
                         this.amnoStorage = e.refill(this.ammoStorage);
                     }
-                    else{
-                        continue;
-                    }
                 }
                 else{
                     this.amnoStorage = e.refill(this.ammoStorage);
@@ -45,7 +42,7 @@ class Carrier {
             console.log(`Get damaged!!! \n  HP -${damage}`);
             this.hp -= damage;
         }
-        //return this.hp;
+        return this.totalDamage;
     }
 
     getStatus() {
