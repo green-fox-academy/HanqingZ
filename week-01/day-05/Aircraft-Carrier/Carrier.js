@@ -16,7 +16,9 @@ class Carrier {
     fill() {
         this.aircrafts.map(e => {
             try{
-                if(this.amnoStorage === 0){throw 'empty'}
+                if(this.amnoStorage === 0){throw 'empty'}{
+                    
+                }
                 
                 if(this.ammoStorage < (e.maxAmno - e.remain)){
                     if(e.isPrioritys()){
