@@ -1,0 +1,25 @@
+.background {
+  padding: 16px;
+}
+
+.origin {
+  margin: 5px;
+  border: 2px solid rgb(66, 133, 244);
+  display: inline-block;
+}
+
+span {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(66, 133, 244);
+  margin: 20px;
+}
+
+.layer span {
+  background-color: rgb(94, 57, 117);
+}
+
+.layer {
+  background-color: rgb(255, 99, 71);
+}

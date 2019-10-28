@@ -1,0 +1,16 @@
+html{
+  color: rgb(0, 85, 102);
+  font-size: 36px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+  margin: 20px;
+  width: 350px;
+  height: 134px;
+  padding: 16px;
+  border: thick solid;
+  border-color: rgb(125, 206, 148);
+  background-color: rgb(14, 145, 161);
+  padding: 16px;
+}
