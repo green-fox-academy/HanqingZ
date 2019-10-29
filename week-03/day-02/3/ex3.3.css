@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  background-color: rgb(255,214,42);
+  display: flex;
+  height:360px;
+  width: 700px;
+  list-style-type: none;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.item{
+  background-color: rgb(176,42,255);
+  height: 100px;
+  width: 100px;
+  margin-left: 10px;
+}

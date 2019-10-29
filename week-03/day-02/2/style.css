@@ -1,0 +1,20 @@
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.yellow{
+  background-color: rgb(255,214,42);
+  width: 945px;
+  height: 350px;
+}
+
+.purple{
+  background-color: rgb(176,42,255);
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 108px;
+  width: 134px;
+  height: 134px;
+}

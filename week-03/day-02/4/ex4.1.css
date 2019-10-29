@@ -1,0 +1,42 @@
+body{
+  padding:0;
+  margin:0;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255,214,42);
+  width: 835px;
+  height: 700px;
+}
+
+#header{
+  background-color: rgb(176,42,255);
+  position: fixed;
+  width: 835px;
+}
+
+#navigation{
+  list-style-type: none;
+  display: flex;
+  padding-left: 20px;
+}
+
+li{
+  width: 100px;
+  height: 30px;
+  background-color: rgb(42,234,255);
+  margin-right: 15px;
+}
+
+#maincontainer{
+  width: 70%;
+}
+
+#sidebar{
+  background-color: rgb(81,212,0);
+  justify-content: flex-end;
+  width: 30%;
+  align-items: stretch;
+}
