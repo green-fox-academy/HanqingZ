@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delayed Button</title>
+</head>
+<body>
+  <button>Click me!</button>
+  <script>
+    let button = document.querySelector('button');
+    let body = document.querySelector('body');
+
+    button.addEventListener('click', function(){
+      setTimeout(function(){
+        let p = document.createElement('p');
+        body.insertAdjacentElement('beforeend', p);
+        p.textContent = '2 seconds ellapsed';
+      },2000);
+    })
+  </script>
+</body>
+</html>
