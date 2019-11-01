@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York Time API</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      'use strict'
+
+      const API_key = 'kigQFvlAZ3mTCkBwsuS0vAZWzkIJd672';
+      const keyword = 'moon+landing+by+Apollo+11';
+      const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&api-key=${API_key}`;
+      
+      let div = document.querySelector('div');
+      let dl = div.appendChild(document.createElement('dl'));
+      dl.setAttribute('style', 'display:flex; flex-direction:column; margin:10px;');
+
+      fetch(url)
+      .then(
+        function(response) {
+          if(response.status < 200 || response.status >= 300) {
+            console.log('Error! ' + response.status);
+            return;
+          }
+          response.json().then(function(data) {
+            console.log(data);
+            for(let i = 0; i < data.response.docs.length; i++){
+              
+              let headline = dl.appendChild(document.createElement('dt'));
+              let snippet = dl.appendChild(document.createElement('dd'));
+              let publicationDate = dl.appendChild(document.createElement('dd'));
+              let permalink = dl.appendChild(document.createElement('a'));
+              
+              headline.textContent = data.response.docs[i].headline.main;
+              snippet.textContent = data.response.docs[i].snippet;
+              publicationDate.textContent = data.response.docs[i].pub_date;
+              permalink.textContent = "\t 🔗 Click me";
+              permalink.setAttribute('href', `${data.response.docs[i].web_url}`);
+
+            }
+          });
+        }
+      ).catch(function(error) {
+        console.log('Fetch Error ', error);
+      })
+
+    </script>
+  </body>
+</html>

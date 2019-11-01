@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy API</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      'use strict'
+
+      const API_key = 'pEXIDqLWH6tszhUIxTdup8t2zOEDBn9w';
+      const limit = 16;
+      const url = `http://api.giphy.com/v1/gifs/search?q=harry+potter&api_key=${API_key}&limit=${limit}`;
+      
+      let div = document.querySelector('div');
+      let ul = div.appendChild(document.createElement('ul'));
+      ul.setAttribute('style', 'list-style-type:none; display:flex; flex-wrap:wrap; flex-direction:row; margin:5px; padding:5px;');
+
+      fetch(url)
+      .then(
+        function(response) {
+          if(response.status < 200 || response.status >= 300) {
+            console.log('Error! ' + response.status);
+            return;
+          }
+          response.json().then(function(data) {
+            console.log(data);
+            for(let i = 0; i < limit; i++){
+              let li = ul.appendChild(document.createElement('li'));
+              let image = li.appendChild(document.createElement('img'));
+              image.src = data.data[i].images['480w_still'].url;
+              image.addEventListener('click', function() {
+                image.src = data.data[i].images['downsized'].url;
+              })
+            }
+          });
+        }
+      ).catch(function(error) {
+        console.log('Fetch Error ', error);
+      })
+
+    </script>
+  </body>
+</html>
