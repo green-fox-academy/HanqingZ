@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+          body {
+            font-family: arial;
+            margin:10px;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            background: url(https://b-ssl.duitang.com/uploads/item/201701/14/20170114183220_itrSh.jpeg);
+          }
+          div
+          .results{
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color:black;
+            color: white;
+          }
+        </style>
+    <title>Star Wars</title>
+  </head>
+  <body>
+    <div>
+      <div class = "seaching">
+        <p>Enter character name</p>
+        <input type="text" name="keyword">
+        <button id="search">search</button>
+      </div>
+      <div class = "results">
+        <section class = "leftpart">
+        </section>
+        <section class = "rightpart">
+        </section>
+      </div>
+    </div>
+
+
+    <script>
+      'use strict'
+
+      let keyword = '';
+      let button = document.querySelector('button');
+      var leftpart = document.querySelector('.leftpart');
+      var rightpart = document.querySelector('.rightpart');
+      var ul = rightpart.appendChild(document.createElement('ul'));
+
+      button.addEventListener('click', function() {
+        keyword = document.querySelector('input').value;
+        console.log(keyword);
+        const url = `https://swapi.co/api/people/?search=${keyword}`;
+        fetch(url)
+        .then(
+          function(response) {
+            if(response.status < 200 || response.status >= 300) {
+              console.log('Error! ' + response.status);
+              return;
+            }
+            response.json().then(function(data) {
+              console.log(data);
+              
+              for(let i = 0; i < data.results.length; i++){
+                let name = leftpart.appendChild(document.createElement('p'));
+                name.textContent = data.results[i].name;
+                for(let j = 0; j < data.results[i].films.length; j++){
+                  let newMovieList = data.results[i].films[j];
+                  console.log(newMovieList);
+                  fetch(newMovieList)
+                  .then(response => {
+                    return response.json();
+                  })
+                  .then(data => {
+                    let movieList = ul.appendChild(document.createElement('li'));
+                    movieList.textContent = data.title;
+                    console.log(movieList.textContent);
+                  })
+                }
+              }              
+            });
+          }
+        ).catch(function(error) {
+          let name = leftpart.appendChild(document.createElement('p'));
+          name.textContent = 'Fetch Error ' + error;
+        })
+      })
+
+      //const people = 'people'
+      //const url = `https://swapi.co/api/people/?search=${keyword}`;
+      
+      //let div = document.querySelector('div');
+      //let dl = div.appendChild(document.createElement('dl'));
+      //dl.setAttribute('style', 'display:flex; flex-direction:column; margin:10px;');
+
+      // function searchAPI(url){
+      //   fetch(url)
+      //   .then(
+      //     function(response) {
+      //       if(response.status < 200 || response.status >= 300) {
+      //         console.log('Error! ' + response.status);
+      //         return;
+      //       }
+      //       response.json().then(function(data) {
+      //         console.log(data);
+      //         //let peopleList = data;
+      //       });
+      //     }
+      //   ).catch(function(error) {
+      //     console.log('Fetch Error ', error);
+      //   })
+      // }
+      
+
+    </script>
+  </body>
+</html>
