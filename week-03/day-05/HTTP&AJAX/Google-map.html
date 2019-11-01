@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+          body {
+            font-family: arial;
+            margin:10px;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+          .results{
+
+          }
+        </style>
+    <title>Get Position</title>
+  </head>
+  <body>
+    <div>
+      <div class = "seaching">
+        <p>IP address</p>
+        <input type="text" name="keyword">
+        <button id="search">search</button>
+      </div>
+      <div class = "results">
+        <iframe
+          width="600"
+          height="450"
+          frameborder="0" style="border:0"
+          src="" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+
+    <script>
+      'use strict'
+
+      let button = document.querySelector('button');
+      let map = document.querySelector('iframe');
+
+      let keyword = '';
+
+      let ipAPIKey = '015134c958145241a3e5b3f62ae706fe';
+      let ipURL = `http://api.ipapi.com/${keyword}?access_key=${ipAPIKey}`;
+      let address = '';
+      let googleAPIKey = 'AIzaSyAS-HpV459V-m1VsG_Zkbt2sdTeZpF9nOA';
+      let googleURL = `https://www.google.com/maps/embed/v1/place?key=${googleAPIKey}&q=${address}`;
+
+
+      button.addEventListener('click', function() {
+        keyword = document.querySelector('input').value;
+        console.log(keyword);
+        ipURL = `http://api.ipapi.com/${keyword}?access_key=${ipAPIKey}`;
+        
+        fetch(ipURL)
+        .then(
+          function(response) {
+            if(response.status < 200 || response.status >= 300) {
+              console.log('Error! ' + response.status);
+              return;
+            }
+            response.json().then(function(data) {
+              console.log(data.city);
+
+              address = data.city;
+              map.setAttribute('src', `https://www.google.com/maps/embed/v1/place?key=AIzaSyAS-HpV459V-m1VsG_Zkbt2sdTeZpF9nOA&q=${address}`)
+             
+            });
+          }
+        ).catch(function(error) {
+          let name = map.appendChild(document.createElement('p'));
+          name.textContent = 'Fetch Error ' + error;
+        })
+      })
+
+    </script>
+  </body>
+</html>
