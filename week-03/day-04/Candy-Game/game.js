@@ -1,34 +1,34 @@
 'use strict'
 
-var candies = document.querySelector('.candies');
-var candiesAmount = 1000;
-var lollypops = document.querySelector('.lollypops');
-var lollypopAmount = 3;
-var speed = document.querySelector('.speed');
-var speedNum = 0;
+const candies = document.querySelector('.candies');
+let candiesAmount = 0;
+const lollypops = document.querySelector('.lollypops');
+let lollypopAmount = 3;
+const speed = document.querySelector('.speed');
+let speedNum = 0;
 
 
-var createCandy = document.querySelector('.create-candies');
-var buyLp = document.querySelector('.buy-lollypops');
-var candyMach = document.querySelector('.candy-machine');
+const createCandyButton = document.querySelector('.create-candies');
+const buyLpButton = document.querySelector('.buy-lollypops');
+const candyMachine = document.querySelector('.candy-machine');
 
-createCandy.addEventListener('click', function(){
-  candiesAmount = parseInt(candiesAmount) + 1;
+createCandyButton.addEventListener('click', () => {
+  candiesAmount = candiesAmount + 1;
   candies.textContent = candiesAmount;
 });
 
-buyLp.addEventListener('click', ()=> {
+buyLpButton.addEventListener('click', ()=> {
   if(candiesAmount >= 100){
     candiesAmount = parseInt(candiesAmount) - 100;
     candies.textContent = candiesAmount;
     lollypopAmount++;
     lollypops.textContent += '🍭';
   }
-  speedNum = parseInt(lollypopAmount/10).toFixed(0);
+  speedNum = Math.floor(lollypopAmount/10).toFixed(0);
   speed.textContent = speedNum;
 })
 
-candyMach.addEventListener('click', ()=> {
+candyMachine.addEventListener('click', ()=> {
   speedNum *= 10;
   speed.textContent = speedNum;
 })
@@ -39,4 +39,5 @@ window.onload = () => {
     candies.textContent = candiesAmount;
     
   }, 1000);
+
 }

@@ -43,10 +43,10 @@
       'use strict'
 
       let keyword = '';
-      let button = document.querySelector('button');
-      var leftpart = document.querySelector('.leftpart');
-      var rightpart = document.querySelector('.rightpart');
-      var ul = rightpart.appendChild(document.createElement('ul'));
+      const button = document.querySelector('button');
+      const leftpart = document.querySelector('.leftpart');
+      const rightpart = document.querySelector('.rightpart');
+      const ul = rightpart.appendChild(document.createElement('ul'));
 
       button.addEventListener('click', function() {
         keyword = document.querySelector('input').value;
@@ -56,22 +56,20 @@
         .then(
           function(response) {
             if(response.status < 200 || response.status >= 300) {
-              console.log('Error! ' + response.status);
-              return;
+              //console.log(`Error! ${response.status}`);
+              throw response.status;
             }
             response.json().then(function(data) {
               console.log(data);
               
-              for(let i = 0; i < data.results.length; i++){
+              for(let i of data.results){
                 let name = leftpart.appendChild(document.createElement('p'));
-                name.textContent = data.results[i].name;
-                for(let j = 0; j < data.results[i].films.length; j++){
-                  let newMovieList = data.results[i].films[j];
+                name.textContent = i.name;
+                for(let j = 0; j < i.films.length; j++){
+                  let newMovieList = i.films[j];
                   console.log(newMovieList);
                   fetch(newMovieList)
-                  .then(response => {
-                    return response.json();
-                  })
+                  .then(response => response.json())
                   .then(data => {
                     let movieList = ul.appendChild(document.createElement('li'));
                     movieList.textContent = data.title;
@@ -86,32 +84,6 @@
           name.textContent = 'Fetch Error ' + error;
         })
       })
-
-      //const people = 'people'
-      //const url = `https://swapi.co/api/people/?search=${keyword}`;
-      
-      //let div = document.querySelector('div');
-      //let dl = div.appendChild(document.createElement('dl'));
-      //dl.setAttribute('style', 'display:flex; flex-direction:column; margin:10px;');
-
-      // function searchAPI(url){
-      //   fetch(url)
-      //   .then(
-      //     function(response) {
-      //       if(response.status < 200 || response.status >= 300) {
-      //         console.log('Error! ' + response.status);
-      //         return;
-      //       }
-      //       response.json().then(function(data) {
-      //         console.log(data);
-      //         //let peopleList = data;
-      //       });
-      //     }
-      //   ).catch(function(error) {
-      //     console.log('Fetch Error ', error);
-      //   })
-      // }
-      
 
     </script>
   </body>

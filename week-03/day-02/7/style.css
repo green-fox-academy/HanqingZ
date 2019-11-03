@@ -2,7 +2,7 @@
   margin:auto;
 }
 
-#header{
+header{
   background-color: rgb(176,42,255);
   position: fixed;
   width: 100vw;
@@ -31,7 +31,7 @@ li{
   width: 80vw;
 }
 
-#maincontainer{
+main{
   margin:auto;
   display:flex;
   flex-wrap: wrap;

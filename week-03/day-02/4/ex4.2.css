@@ -1,35 +1,35 @@
 body{
-  margin:0;
+  margin: 0;
   padding: 0;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-#header{
+header {
   background-color: rgb(176,42,255);
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   height: 65px;
   z-index: 1;
 }
 
-#navigation{
+ul {
   list-style-type: none;
   display: flex;
   padding-left: 20px;
 }
 
-li{
+li {
   width: 100px;
   height: 30px;
   background-color: rgb(42,234,255);
   margin-right: 15px;
 }
 
-.container{
-  display:flex;
+main {
+  display: flex;
   flex-direction: row-reverse;
   justify-content: center;
   width: 650px;
@@ -38,21 +38,21 @@ li{
   margin-top: 65px;
 }
 
-#maincontainer{
+#container {
   background-color: rgb(255,214,42);
-  margin:10px;
+  margin: 10px;
   width: 200px;
   height: 500px;
 }
 
-#sidebar{
+#sidebar {
   background-color: rgb(81,212,0);
   width: 400px;
   height: 500px;
   margin: 10px;
 }
 
-#footer{
+footer {
   background-color: rgb(204, 204, 204);
   height: 50px;
   width: 620px;
