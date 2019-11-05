@@ -1,36 +1,40 @@
 import React from 'react';
+import data from './data'
 
 export default class Todo extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      todoList: props.state.todo,
-      doneList: props.state.doneTodo
+      todo: [
+        { text: 'Feed the monkey', prio: 2 },
+        { text: 'Buy milk', prio: 1 }
+      ],
+      doneTodo: [
+        { text: 'Sleep 8 hours', prio: 2 },
+        { text: 'Mentoring others', prio: 1 }
+      ],
     }
+
   }
 
+  todoPart() {
+    return (
+      <>
+        {
+          this.state.todo.map({element, index})
+        }
+      </>
+    )
+  }
   
+  donePart() {
 
-  componentDidMount(){
-    window.addEventListener('keyup', this.handleKeyPress.bind(this));
-  }
-
-  handleKeyPress(key){
-    if(key.keyCode === 38){
-      this.handleIncrement();
-    }
-    else if(key.keyCode === 40){
-      this.handleDecrease();
-    }
   }
 
   render(){
-    const { numOfAcorn } = this.state;
     return (
       <div>
-        <button onClick={this.handleIncrement.bind(this)}>Buy one</button>
-        <p>{numOfAcorn}</p>
-        <button onClick={this.handleDecrease.bind(this)}>Eat one</button>
+        
         
       </div>
     );
