@@ -26,19 +26,19 @@ class App extends React.Component {
       })
   }
 
-  componentDidUpdate(prevState){
+  componentDidUpdate(prevPros, prevState){
     const newapi_key = 'f5bdda68a887445bb4d26831177a0efc';
     const newapi_url = `https://newsapi.org/v2/top-headlines?q=${this.state.countryWord}&apiKey=${newapi_key}`;
 
     if(this.state.countryWord !== prevState.countryWord){
-    fetch(newapi_url)
-      .then(response => response.json())
-      .then(data =>{
-        console.log(data);
-        {this.setState({
-          article: [...data.articles]
-        })}
-      })
+      fetch(newapi_url)
+        .then(response => response.json())
+        .then(data =>{
+          console.log(data);
+          {this.setState({
+            article: [...data.articles]
+          })}
+        })
     }
   }
 
@@ -51,8 +51,8 @@ class App extends React.Component {
         </header>
         <main>
           <ul>
-            {this.state.article.map(e => (
-              <li key={e.title}> {e.title} </li>
+            {this.state.article.map((e,i) => (
+              <li key={i}> {e.title} </li>
             ))}
           </ul>
         </main>
