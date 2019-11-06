@@ -1,4 +1,4 @@
-.App {
+header {
   text-align: center;
 }
 
@@ -19,4 +19,8 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+ul {
+  list-style-type: none;
 }
