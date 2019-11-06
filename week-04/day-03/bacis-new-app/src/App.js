@@ -14,8 +14,8 @@ class App extends React.Component {
   componentDidMount(){
     const newapi_key = 'f5bdda68a887445bb4d26831177a0efc';
     const delayTime = 3000;
-    const newapi_url = `https://newsapi.org/v2/top-headlines?country=cn&apiKey=${newapi_key}`;
-    const delay_url =  `http://slowwy.greenfox.academy/delay/${delayTime}/url/https://newsapi.org/v2/top-headlines?country=cn&apiKey=f5bdda68a887445bb4d26831177a0efc`;
+    const newapi_url = `https://newsapi.org/v2/top-headlines?q=china&apiKey=${newapi_key}`;
+    const delay_url =  `http://slowwy.greenfox.academy/delay/${delayTime}/url/${newapi_url}`;
 
     fetch(delay_url)
       .then(response => response.json())
