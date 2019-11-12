@@ -5,23 +5,23 @@ import './App.css';
 
 function App() {
 
-  const [ pizzaInfo, setPizzaInfo ] = useState([]);
+  const [ pizzaInfo, setPizzaInfo ] = useState({});
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = values => {
-    console.log(values.Base);
-    setPizzaInfo([
-      ...pizzaInfo,
+    console.log(values);
+    setPizzaInfo(
       {
+      ...pizzaInfo,
       base: values.Base,
       chicken: values.Chicken,
       pineapple: values.Pineapple,
       mushroom: values.Mushroom,
       cutted: values.Cutted,
       comment: values.comment
-    }]);
+    });
     
-    console.log(pizzaInfo);
+    //console.log(pizzaInfo);
   }
 
   return (
@@ -62,6 +62,7 @@ function App() {
           </label>
           <button>Submit</button>
         </form>
+        
       </main>
     </div>
   );
