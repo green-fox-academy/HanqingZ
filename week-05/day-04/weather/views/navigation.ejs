@@ -1,0 +1,6 @@
+<nav>
+    <a href="/">All</a>
+    <% for (let element in forecasts) { %>
+    <a href="/city/<%=element %>"><%=forecasts[element].city %></a>
+    <% } %>
+  </nav>

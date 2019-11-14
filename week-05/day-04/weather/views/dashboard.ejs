@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/static/dashboard.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+    <header>
+      <h1>Weather</h1>
+      <%- include("navigation.ejs", {forecasts}) %>
+    </header>
+    <main>
+      <% forecasts.forEach(element => { %>
+        <div>
+          <h2><%=element.city %></h2>
+          <p><%=element.location %></p>
+          <p><%=element.weather[0].temp %>°C</p>
+          <img src="/static/<%=element.weather[0].icon %>.png" />
+        </div>
+      <% }) %>
+  </main>
+  </body>
+</html>
