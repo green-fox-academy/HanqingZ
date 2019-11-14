@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="/static/detailed.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/detailed.css">
     <title>Weather Dashboard</title>
   </head>
   <body>
@@ -14,8 +14,9 @@
     <main>
       <% forecasts[id].weather.forEach(element => { %>
         <div>
-          <p><%=element.temp %>°C</p>
           <img src="/static/<%=element.icon %>.png" />
+          <p><%=element.temp %>°C</p>
+          <p><%=element.message %></p>
         </div>
       <% }) %>
     </main>

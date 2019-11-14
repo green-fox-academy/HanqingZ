@@ -1,11 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900');
+
+body {
+  background-color: rgb(236, 240, 241);
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  color: rgb(52,73,94);
+}
+
 header {
   text-align: left;
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
+div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 140px;
+  width: 510px;
+  margin: 8px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgb(210, 210, 210);
+}
+
+div > span {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 30px;
+}
+
+h2 {
+  margin: 0;
+  font-weight: 1000;
+}
+
+.location {
+  margin: 0;
+}
+
+div > span ~ span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin:0;
+}
+
+.temp{
+  font-size: 38px;
+  margin-right: 0;
+}
+
 img {
-  height: 50px;
+  margin-right: 30px;
+  height: 110px;
 }

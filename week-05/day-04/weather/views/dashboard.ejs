@@ -14,10 +14,14 @@
     <main>
       <% forecasts.forEach(element => { %>
         <div>
-          <h2><%=element.city %></h2>
-          <p><%=element.location %></p>
-          <p><%=element.weather[0].temp %>°C</p>
-          <img src="/static/<%=element.weather[0].icon %>.png" />
+          <span>
+            <h2><%=element.city %></h2>
+            <p class="location"><%=element.location %></p>
+          </span>
+          <span>
+            <p class="temp"><%=element.weather[0].temp %>°C</p>
+            <img src="/static/<%=element.weather[0].icon %>.png" />
+          </span>
         </div>
       <% }) %>
   </main>
