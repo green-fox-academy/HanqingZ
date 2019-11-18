@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <h1><%= forecasts[id].city %></h1>
+      <h1 onclick="location='/'"><%= forecasts[id].city %></h1>
       <%- include("navigation.ejs", {forecasts}) %>
     </header>
     <main>

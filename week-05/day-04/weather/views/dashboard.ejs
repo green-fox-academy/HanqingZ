@@ -12,8 +12,8 @@
       <%- include("navigation.ejs", {forecasts}) %>
     </header>
     <main>
-      <% forecasts.forEach(element => { %>
-        <div>
+      <% forecasts.map((element,index) => { %>
+        <div onclick="location='./city/<%=index %>'">
           <span>
             <h2><%=element.city %></h2>
             <p class="location"><%=element.location %></p>
