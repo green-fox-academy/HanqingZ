@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bookstore</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bookstore from Database</h1>
+      <%- include("navigation.ejs") %>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Publisher</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <% details.forEach(element => { %>
+          <tr>
+            <td><%=element.Name %></td>
+            <td><%=element.Author %></td>
+            <td><%=element.Category %></td>
+            <td><%=element.Publisher %></td>
+            <td><%=element.Price %></td>
+          </tr>
+        <% }) %>
+      </table>
+  </main>
+  </body>
+</html>
