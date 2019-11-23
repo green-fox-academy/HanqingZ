@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS TodoList (
 	tlid int NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     isDone Bool DEFAULT false,
-	userId int DEFAULT 1;
+	userId int DEFAULT 1,
     PRIMARY KEY (tlid)
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Themes (
 CREATE TABLE Users (
 	uid int NOT NULL AUTO_INCREMENT,
     username VARCHAR(255),
-	themeId int DEFAULT 1;
+	themeId int DEFAULT 1,
 	PRIMARY KEY (uid)
 );
 
