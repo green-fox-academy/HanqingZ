@@ -1,0 +1,32 @@
+* {
+  margin : 0;
+}
+
+.App {
+  text-align: center;
+  justify-content: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 300px;
+}
+
+.Main-component {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 10vw;
+  margin-top: 20px;
+  width: 80vw;
+}
+
+main {
+  width: 45vw;
+}

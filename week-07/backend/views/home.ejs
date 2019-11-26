@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Reddit</title>
+  </head>
+  <body>
+    <h1>reddit posts:</h1>
+    <ul>
+      <% posts.forEach(post => { %>
+        <ul>
+          <li><%= post.id %></li>
+          <li><%= post.title %></li>
+          <li><%= post.url %></li>
+          <li><%= post.timestamp %></li>
+          <li><%= post.score %></li>
+          <li><%= post.owner %></li>
+          <li><%= post.vote %></li>
+          <li><%= post.comments %></li>
+        </ul>
+      <% }) %>
+    </ul>
+  </body>
+</html>
