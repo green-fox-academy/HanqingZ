@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Posts from './posts';
 import Sidebars from './sidebar';
-//import { Link } from 'react-router-dom';
 
-export default function Welcome() {
+export default function Welcome({ userInfo }) {
+
+  //let userInfomation = window.localStorage.getItem("user");
 
   const [dataList, setDataList] = useState([]);
   const [serverStatus, setServerStatus] = useState(0);
@@ -42,6 +43,7 @@ export default function Welcome() {
     })
     .then(response => {
       setServerStatus(response.status);
+      console.log(response);
       response.json();
       setDataList([...dataList, response]);
     })
@@ -55,7 +57,7 @@ export default function Welcome() {
           <Posts element={element} putPosts={putPosts}/>
         )}
       </main>
-      <Sidebars setServerStatus={setServerStatus} />
+      <Sidebars userInfo={userInfo} setServerStatus={setServerStatus} />
     </div>
   )
 }

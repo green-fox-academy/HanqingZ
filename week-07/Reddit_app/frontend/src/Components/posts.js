@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Upvote from './arrows/upvote.png';
 import Upvoted from './arrows/upvoted.png';
 import Downvote from './arrows/downvote.png';
@@ -8,7 +9,6 @@ const spanStyle = {
   "display" : "flex", 
   "flexDirection" : "row", 
   "justifyContent": "center", 
-  "flexWrap": "wrap",
   "margin": "20px",
   "weight": "20px"
 }
@@ -90,16 +90,19 @@ export default function Posts({ element, putPosts }) {
   }
 
   return (
-    <span key={element.id} style={spanStyle}>
+    <span key={element.pid} style={spanStyle} >
       <div style={{"margin": "0 30px"}}>
-        <img src={upFlag ? Upvoted : Upvote} onClick={() => {voteAction(element.id, 'upvote')}}/>
+        <img src={upFlag ? Upvoted : Upvote} onClick={() => {voteAction(element.pid, 'upvote')}}/>
         <p>{getScore(element.score)}</p>
-        <img src={downFlag ? Downvoted : Downvote} onClick={() => {voteAction(element.id, 'downvote')}}/>
+        <img src={downFlag ? Downvoted : Downvote} onClick={() => {voteAction(element.pid, 'downvote')}}/>
       </div>
-      <div style={{"textAlign": "left"}}>
-        <h3 style={{"marginBottom":"5px"}}>{element.title}</h3>
+      <div style={{"textAlign": "left", "fontSize": "10pt"}}>
+        { element.url !== "" 
+          ? <h3 style={{"marginBottom":"5px", "fontSize":"18pt"}}><a href={element.url}>{element.title}</a></h3>
+          : <h3 style={{"marginBottom":"5px", "fontSize":"18pt"}}>{element.title}</h3>
+        }
         <p>submitted {getTime(element.timestamp)} ago by {element.username}</p>
-        <p>{element.comments} comments share save hide report crosspost pocket</p>
+        <p><Link to={`comments/${element.pid}`} >{element.comments} comments</Link>  share  save  hide  report  crosspost  pocket</p>
       </div>
     </span>
   )

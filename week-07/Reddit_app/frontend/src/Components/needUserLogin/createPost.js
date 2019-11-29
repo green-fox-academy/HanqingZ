@@ -2,20 +2,21 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 
-
-export default function CreatePost({ setStateServer }) {
-  
+export default function CreatePost({ userInfo, setStateServer }) {
+ 
   let ptitle = '';
   let purl = '';
   let history = useHistory();
 
+  console.log("username is "+ userInfo.userID);
+  
   function create(title, url) {
     
     console.log(title);
     if(title.length > 5){
       fetch('http://localhost:8080/posts/', {
         method: "POST",
-        body: JSON.stringify({"title": `${title}`, "url": `${url}`}),
+        body: JSON.stringify({"title": `${title}`, "url": `${url}`, "uid":`${userInfo.userID}`}),
         headers: {
           'Accept': 'application/json', 
           'Content-Type': 'application/json'
@@ -27,7 +28,7 @@ export default function CreatePost({ setStateServer }) {
           return history.push("/");
         }
       })
-      .catch(err => err);
+      .catch(err => console.log(err));
     }
   }
 

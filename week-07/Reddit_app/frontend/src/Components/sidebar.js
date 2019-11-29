@@ -7,19 +7,25 @@ const sidebarStyle = {
   "textAlign": "left"
 }
 
-export default function Sidebars({ setServerStatus }) {
+export default function Sidebars({ userInfo, setServerStatus }) {
   
   return (
     <div className="Sidebar" style={sidebarStyle}>
       <h3 style={{"marginBottom": "20px", "textAlign": "center", "color": "black"}}><Link to="./">r/space</Link></h3>
       <p>Share & discuss informative content on: * Astrophysics * Cosmology * Space Exploration * Planetary Science * Astrobiology</p>
-      <button><Link to={{
-        pathname: "/newPost",
-        aboutProps: {
-          setServerStatus: setServerStatus
+      <button >
+        {
+          userInfo.username === ""  
+          ? <Link to={"/login"}>SUBMIT A NEW POST</Link>
+          : <Link to={{
+            pathname: "/newPost",
+            aboutProps: {
+              setServerStatus: setServerStatus
+            }}}>
+              SUBMIT A NEW POST
+          </Link>
         }
-        }}>SUBMIT A NEW POST
-      </Link></button>
+      </button>
     </div>
   )
 }
