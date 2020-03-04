@@ -18,13 +18,31 @@
           <th>URL</th>
           <th>Action</th>
         </tr>
+        <tr>
+          <th><input class="form-control author-input"></th>
+          <th><input class="form-control title-input"></th>
+          <th><input class="form-control url-input"></th>
+          <th><input class="form-control author-input"></th>
+        </tr>
       </thead>
+      <tbody class="blogs-list">
+
+      </tbody>
     </table>
   </div>
 
-  <script src="js/backbone.js"></script>
+  <script type="text/template" class="blogs-list-template">
+    <td><span class="author"><%= author %></span></td>
+    <td><span class="title"><%= title %></span></td>
+    <td><span class="url"><%= url %></span></td>
+    <td><span class="action"><%= action %></span></td>
+    <td><button class="btn btn-warning edit-blog">Edit</button></td>
+    <td><button class="btn btn-danger delete-blog">Delete</button></td>
+  </script>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/underscore.js"></script>
+  <script src="js/backbone.js"></script>
   <script src="js/scripts.js"></script>
 </body>
 </html>
